@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vaultwarden
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`vaultwarden.mesh.lan`)
+    services:
+    - name: bitwarden-bitwarden-k8s
+      port: 80
