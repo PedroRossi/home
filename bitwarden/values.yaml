@@ -1,4 +1,4 @@
-bitwarden:
+bitwarden-k8s:
   image:
     repository: vaultwarden/server
     tag: 1.23.1
