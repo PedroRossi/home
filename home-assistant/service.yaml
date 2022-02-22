@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: home-assistant
+spec:
+  selector:
+    app.kubernetes.io/name: home-assistant
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: http
