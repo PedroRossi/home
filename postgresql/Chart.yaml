@@ -1,0 +1,10 @@
+apiVersion: v2
+name: postgresql
+description: PostgreSQL chart
+type: application
+version: 0.1.0
+appVersion: "14.2.0"
+dependencies:
+- name: bitnami/postgresql
+  version: 11.1.3
+  repository: https://charts.bitnami.com/bitnami
