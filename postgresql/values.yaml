@@ -1,9 +1,4 @@
-
 bitnami/postgresql:
-  auth:
-    database: postgres
-    postgresPassword: postgres
-    enablePostgresUser: true
   primary:
     persistence:
       existingClaim: "postgresql-pvc"
