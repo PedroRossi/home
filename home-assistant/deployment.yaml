@@ -19,13 +19,6 @@ spec:
             - name: http
               protocol: TCP
               containerPort: 8123
-          volumeMounts:
-            - name: config
-              mountPath: /config/
           env:
             - name: TZ
               value: America/Sao_Paulo
-      volumes:
-        - name: config
-          configMap:
-            name: home-assistant-configmap
