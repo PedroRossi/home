@@ -21,12 +21,11 @@ spec:
               containerPort: 8123
           volumeMounts:
             - name: config
-              mountPath: /config/configuration.yaml
-              subPath: configuration.yaml
+              mountPath: /config/
           env:
             - name: TZ
               value: America/Sao_Paulo
       volumes:
         - name: config
-          configMap:
-            name: home-assistant-configmap
+          persistentVolumeClaim:
+            name: home-assistant-pvc
