@@ -28,4 +28,4 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            name: home-assistant-pvc
+            claimName: home-assistant-pvc
