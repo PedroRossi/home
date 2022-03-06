@@ -1,0 +1,4 @@
+bitnami/postgresql:
+  primary:
+    persistence:
+      existingClaim: "postgresql-pvc"

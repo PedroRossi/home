@@ -1,0 +1,10 @@
+namespace: home-assistant
+resources:
+  - pvc.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingressroute.yaml
+configMapGenerator:
+  - name: home-assistant-configmap
+    files:
+      - configuration.yaml

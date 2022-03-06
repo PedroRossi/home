@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: home-assistant
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`home-assistant.mesh.lan`)
+    services:
+    - name: home-assistant
+      port: 80
