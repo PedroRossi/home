@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minecraft
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`minecraft.mesh.lan`)
+    services:
+    - name: minecraft
+      port: 25565

@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-server
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: minecraft
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: minecraft
+    spec:
+      volumes:
+        - name: world
+          persistentVolumeClaim:
+            claimName: minecraft-world-pvc
+      containers:
+        - name: minecraft
+          image: itzg/minecraft-server:java17-alpine
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: world
+              mountPath: /data
+          ports:
+            - name: game-port
+              containerPort: 25565
+              hostPort: 25565
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: VERSION
+              value: "1.18.2"
+            - name: JVM_OPTS
+              value: ""
+            - name: JVM_XX_OPTS
+              value: ""
+            - name: JVM_DD_OPTS
+              value: ""
+            - name: ONLINE_MODE
+              value: "FALSE"
+            - name: SERVER_NAME
+              value: Rossiland
+          resources:
+            requests:
+              cpu: 1
+              memory: 2Gi
+            limits:
+              cpu: 1
+              memory: 2Gi
