@@ -1,14 +1,11 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: postgresql
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: postgresql
-  namespace: postgresql
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
