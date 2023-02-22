@@ -1,0 +1,5 @@
+csi-driver-smb:
+  controller:
+    dnsPolicy: ClusterFirstWithHostNet
+  linux:
+    dnsPolicy: ClusterFirstWithHostNet
