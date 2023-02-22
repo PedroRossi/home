@@ -44,6 +44,25 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: csi-driver-smb
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: csi-driver-smb/csi-driver-smb
+    repoURL: https://github.com/kubernetes-csi/csi-driver-smb/master/charts
+    targetRevision: v1.10.0
+    helm:
+      releaseName: csi-driver-smb
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: jellyfin
   namespace: argocd
   finalizers:
