@@ -26,7 +26,7 @@ spec:
       source: "//192.168.2.66/Data"
     nodeStageSecretRef:
       name: smbcreds
-      namespace: default
+      namespace: jellyfin
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
